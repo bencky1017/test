@@ -1,0 +1,52 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.codesnippet {
+    max-width: 800px;
+    margin: 10px;
+}
+
+pre {
+    position: relative;
+    /* min-height: 10px; */
+    /* white-space: pre-wrap; */
+}
+
+code {
+    max-height: 500px;
+}
+
+.copy {
+    position: absolute;
+    right: 40px;
+    top: 40px;
+}
+
+.copy {
+    border-radius: 8px;
+    color: #409eff;
+    border: #a0cfff solid 1px;
+    background-color: #ecf5ff;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+
+.copy:hover {
+    color: #ffffff;
+    border: #409eff solid 1px;
+    background-color: #409eff;
+    transition: all 0.1s;
+}
