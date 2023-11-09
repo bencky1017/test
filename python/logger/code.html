@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Snippet</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/highlight_person.css"><!-- 自定义高亮 -->
+    <link rel="stylesheet" href="../../assets/js/highlight/styles/vs2015.min.css">
+
+    <script type="text/javascript" src="../../assets/js/index.js"></script>
+    <script type="text/javascript" src="../../assets/js/highlight/highlight.min.js"></script>
+    <!-- 这两个js可以用来高亮初始化代码，如果是动态添加的则需要注释掉 -->
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightElement(block);
+            });
+        });
+    </script>
+    <script>hljs.highlight();</script> -->
+</head>
+
+<body>
+    <div class="codesnippet">
+        <pre>
+            <code id="code"  class=""></code>
+            <div class="copy" onclick="copyContent(document.getElementById('code').textContent)">复制代码</div>
+        </pre>
+    </div>
+    <script>
+        var pathName = window.location.href.split('?name=').at(-1);
+        if (window.location.href.indexOf('?name=') != -1) {
+            var type_list = ['css', 'http', 'ini', 'java', 'javascript', 'json', 'markdown', 'perl',
+                'php', 'plaintext', 'python', 'shell', 'sql', 'xml'];
+            var extend_list = ['css', 'http', 'ini', 'java', 'js', 'json', 'md', 'perl',
+                'php', 'txt', 'py', 'sh', 'sql', 'xml'];
+            // 参数获取文件名?name=openpyxlmd.py
+            pathName_base = pathName.split('.')[0];
+            pathName_extend = pathName.split('.')[1];
+            console.log(pathName, pathName_base, pathName_extend)
+
+            if (pathName_extend == undefined || pathName_extend == '') {
+                const getElementId = document.getElementById('code');
+                getElementId.innerHTML = "{code:404,error:'缺少参数文件类型'}"
+                getElementId.className = 'plaintext'
+                hljs.highlightElement(getElementId);
+            } else {
+                var type_index = extend_list.indexOf(pathName_extend)
+                var type = type_list[type_index]
+                var language = 'language-' + type //|| type;
+
+                const getElementId = document.getElementById('code');
+                getElementId.className = language
+
+                getFileToShow('code', pathName);
+            }
+        }
+        else {
+            const getElementId = document.getElementById('code');
+            getElementId.innerHTML = "{code:404,error:'缺少参数 name'}"
+            getElementId.className = 'plaintext'
+            hljs.highlightElement(getElementId);
+        }
+    </script>
+</body>
+
+</html>
