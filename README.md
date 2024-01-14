@@ -1,15 +1,32 @@
-# codesnippet
-Code Snippet：不同语言的代码片段、自定义模块、可引用库/包等。包含Python、HTML、JavaScript、CSS……
+# NPM镜像
+
+可以直接修改镜像
+
+## 默认镜像
+
+```sh
+npm config set registry https://registry.npmjs.org/
+```
+
+## 镜像站
+
+```sh
+npm config set registry https://registry.npmmirror.com/
+```
+
+## 淘宝镜像
+
+```sh
+npm config set registry https://registry.npm.taobao.org/
+```
 
 
 
-Python
---
+## 临时参数形式
 
-- [configBox](./python/configbox/)
-- [logger](./python/logger/)
-- [openpyxlmd](./python/openpyxlmd/)
-- [testmd](./python/testmd/)
+在执行命令时候添加参数，比如安装socket.io时候使用`镜像站`的`registry`：
 
-Javascript
---
+```sh
+npm install socket.io --registry=https://registry.npmmirror.com
+```
+
